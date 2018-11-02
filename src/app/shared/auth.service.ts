@@ -6,10 +6,16 @@ import { EmailValidator } from "@angular/forms";
 const httpOptions = {
   headers: new HttpHeaders({
     "Content-Type": "application/json",
+    // Authorization: localStorage.getItem("token")
+  })
+};
+const httpOptionsAuth = {
+  headers: new HttpHeaders({
+    "Content-Type": "application/json",
     Authorization: localStorage.getItem("token")
   })
 };
-let id = localStorage.getItem("user.id");
+// let id = localStorage.getItem("user.id");
 
 @Injectable()
 export class AuthService {
@@ -30,7 +36,7 @@ export class AuthService {
 
   editUsername(user) {
     // console.log("this._updateUsernameUrl:", this._updateUsernameUrl)
-    return this.http.put<any>(this._updateUsernameUrl, { user }, httpOptions);
+    return this.http.put<any>(this._updateUsernameUrl, { user }, httpOptionsAuth);
   }
 
   // deleteUser() {
