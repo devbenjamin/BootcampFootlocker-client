@@ -10,6 +10,7 @@ import { AuthService } from "./shared/auth.service";
 import { ItemsService } from "./shared/items.service";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MaterialModule } from "./material";
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { WelcomeComponent } from "./welcome/welcome.component";
 import { NavbarComponent } from "./navbar/navbar.component";
@@ -29,9 +30,9 @@ import { RedbadgecommentsComponent } from "./redbadgecomments/redbadgecomments.c
 import { RedbadgecommentscreateComponent } from "./redbadgecommentscreate/redbadgecommentscreate.component";
 import { RedbadgecommentslistComponent } from "./redbadgecommentslist/redbadgecommentslist.component";
 import { CommentsService } from "./shared/comments.service";
-import { AngularComponent } from './angular/angular.component';
-import { UserinfoComponent } from './userinfo/userinfo.component';
-
+import { AngularComponent } from "./angular/angular.component";
+import { UserinfoComponent } from "./userinfo/userinfo.component";
+import { AuthGuard } from "./auth.guard";
 
 @NgModule({
   declarations: [
@@ -64,9 +65,10 @@ import { UserinfoComponent } from './userinfo/userinfo.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    FlexLayoutModule
   ],
-  providers: [AuthService, ItemsService, CommentsService],
+  providers: [AuthService, ItemsService, CommentsService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
